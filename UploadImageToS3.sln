@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33205.214
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UploadImageToS3", "UploadImageToS3\UploadImageToS3.csproj", "{A9DC3684-608D-4088-AC78-FE777182DCE7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UploadImageToS3.IntegrationTests", "UploadImageToS3.IntegrationTests\UploadImageToS3.IntegrationTests.csproj", "{CA65CCB9-3752-462B-9F34-851F548F7A39}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A9DC3684-608D-4088-AC78-FE777182DCE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9DC3684-608D-4088-AC78-FE777182DCE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9DC3684-608D-4088-AC78-FE777182DCE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9DC3684-608D-4088-AC78-FE777182DCE7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA65CCB9-3752-462B-9F34-851F548F7A39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA65CCB9-3752-462B-9F34-851F548F7A39}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA65CCB9-3752-462B-9F34-851F548F7A39}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA65CCB9-3752-462B-9F34-851F548F7A39}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BDE8A86F-BADC-4126-B411-F223F71DC8E8}
+	EndGlobalSection
+EndGlobal
