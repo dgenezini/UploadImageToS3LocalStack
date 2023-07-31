@@ -4,7 +4,7 @@ using UploadImageToS3;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.AddAwsS3Service();
+builder.AddAwsServices();
 
 var app = builder.Build();
 

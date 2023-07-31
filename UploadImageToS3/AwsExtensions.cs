@@ -1,29 +1,28 @@
-using Amazon;
 using Amazon.S3;
+using UploadImageToS3.AwsClientFactories;
 
 namespace UploadImageToS3;
 
 public static class AwsExtensions
 {
-    public static void AddAwsS3Service(this WebApplicationBuilder builder)
+    public static void AddAwsServices(this WebApplicationBuilder builder)
     {
-        if (builder.Configuration.GetSection("AWS") is null)
+        builder.Services.AddSingleton<IAmazonS3>(sc =>
         {
-            builder.Services.AddAWSService<IAmazonS3>();
-        }
-        else
-        {
-            builder.Services.AddSingleton<IAmazonS3>(sc =>
-            {
-                var awsS3Config = new AmazonS3Config
-                {
-                    RegionEndpoint = RegionEndpoint.GetBySystemName(builder.Configuration["AWS:Region"]),
-                    ServiceURL = builder.Configuration["AWS:ServiceURL"],
-                    ForcePathStyle = bool.Parse(builder.Configuration["AWS:ForcePathStyle"]!)
-                };
+            var configuration = sc.GetRequiredService<IConfiguration>();
+            var awsConfiguration = configuration.GetSection("AWS").Get<AwsConfiguration>();
 
-                return new AmazonS3Client(awsS3Config);
-            });
-        }
+            if (awsConfiguration?.ServiceURL is null)
+            {
+                return new AmazonS3Client();
+            }
+            else
+            {
+                return AwsS3ClientFactory.CreateAwsS3Client(
+                    awsConfiguration.ServiceURL,
+                    awsConfiguration.Region, awsConfiguration.ForcePathStyle,
+                    awsConfiguration.AwsAccessKey, awsConfiguration.AwsSecretKey);
+            }
+        });
     }
 }
